@@ -11,7 +11,7 @@ spec:
         image: btoll/benjamintoll.com:latest
         envFrom:
           - configMapRef:
-              name: env
+              name: envs
         ports:
           - name: http
             containerPort: 80

@@ -1,0 +1,4 @@
+- op: replace
+  path: /spec/rules/1/http/paths/0/backend/service/port/number
+  value: 8080
+

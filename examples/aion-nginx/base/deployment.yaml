@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aion-nginx
+spec:
+  replicas: 6
+  template:
+    spec:
+      containers:
+        image: 451310829282.dkr.ecr.us-east-1.amazonaws.com/aion/aion-nginx:master-d90e721
+        name: aion-nginx
+        ports:
+        - containerPort: 80
+        envFrom:
+          - configMapRef:
+              name: envs

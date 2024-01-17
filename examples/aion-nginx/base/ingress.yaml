@@ -1,0 +1,38 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    alb.ingress.kubernetes.io/actions.redirect-to-old-domain: '{"Type":"redirect","RedirectConfig":{"Host":"app.beta-veriforceone.com","Path":"/#{path}","Port":"443","Protocol":"HTTPS","Query":"#{query}","StatusCode":"HTTP_301"}}'
+    alb.ingress.kubernetes.io/actions.ssl-redirect: '{"Type": "redirect", "RedirectConfig":
+      { "Protocol": "HTTPS", "Port": "443", "StatusCode": "HTTP_301"}}'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ca-central-1:597690436128:certificate/dd812e45-ee27-4b7a-aa86-313fe91482cf,arn:aws:acm:ca-central-1:597690436128:certificate/7c68597d-b9a3-428c-9c32-74bd2002f093
+    alb.ingress.kubernetes.io/healthcheck-path: /elb-status
+    alb.ingress.kubernetes.io/inbound-cidrs: 0.0.0.0/0
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}, {"HTTP":80}]'
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/subnets: subnet-0c76f7a69ba7006ce,subnet-0797a8fab6d728e84,subnet-09cf6f0ff083b71c0
+    alb.ingress.kubernetes.io/target-type: ip
+    external-dns.alpha.kubernetes.io/hostname: app.beta-veriforceone.com
+    kubernetes.io/ingress.class: alb
+  name: aion-nginx
+  namespace: default
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          service:
+            name: ssl-redirect
+            port:
+              name: use-annotation
+        path: /*/api/*
+        pathType: ImplementationSpecific
+  - http:
+      paths:
+      - backend:
+          service:
+            name: aion-nginx
+            port:
+              number: 80
+        path: /*
+        pathType: ImplementationSpecific

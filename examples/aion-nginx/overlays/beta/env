@@ -1,0 +1,11 @@
+ENV=beta
+DOMAIN=.default.svc.cluster.local
+HTTPS_REDIRECT_FROM=www.beta.pecdata.net
+HTTPS_REDIRECT_TO=beta.pecdata.net
+HTTP_SCHEME=https
+INSTRUCTORPORTAL_WEBAPPS=server 10.5.3.68; server 10.5.7.150;
+LEGACY_WEBAPPS=server 10.5.3.68;
+RESOLVER=kube-dns.kube-system.svc.cluster.local
+SERVERNAME=beta.pecdata.net www.beta.pecdata.net
+TRAINING_LEGACY_WEBAPPS=server 10.5.3.188;
+TRAINING_SERVER=betatraining.pecdata.net

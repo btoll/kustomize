@@ -1,0 +1,15 @@
+namePrefix: production-
+
+resources:
+  - ../../base
+
+configMapGenerator:
+- name: env
+  envs:
+  - env
+  behavior: merge
+
+images:
+- name: 451310829282.dkr.ecr.us-east-1.amazonaws.com/aion/aion-nginx
+  newName: 451310829282.dkr.ecr.us-east-1.amazonaws.com/aion/aion-nginx
+  newTag: production-1.0.0

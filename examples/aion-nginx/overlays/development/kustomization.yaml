@@ -1,0 +1,23 @@
+namePrefix: development-
+
+resources:
+  - ../../base
+
+patches:
+- target:
+    group: networking.k8s.io
+    version: v1
+    kind: Ingress
+    name: aion-nginx
+  path: patch.json
+
+configMapGenerator:
+- name: env
+  envs:
+  - env
+  behavior: merge
+
+images:
+- name: 451310829282.dkr.ecr.us-east-1.amazonaws.com/aion/aion-nginx
+  newName: 451310829282.dkr.ecr.us-east-1.amazonaws.com/aion/aion-nginx
+  newTag: development-1.0.0

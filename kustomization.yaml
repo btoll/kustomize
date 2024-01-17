@@ -1,0 +1,12 @@
+resources:
+- deployment.yaml
+secretGenerator:
+- name: example-secret-1
+  files:
+  - password.txt
+generatorOptions:
+  disableNameSuffixHash: true
+  labels:
+    type: generated
+  annotations:
+    note: generated

@@ -1,0 +1,17 @@
+namePrefix: dev-
+namespace: default
+commonLabels:
+  app: benjamintoll
+resources:
+  - deployment.yaml
+#patchesStrategicMerge:
+#  - patch.yaml
+configMapGenerator:
+- name: envs
+  behavior: create
+  envs:
+  - .env
+#  literals:
+#    - TWIG=berry
+#  files:
+#  - application.properties

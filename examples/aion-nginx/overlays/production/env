@@ -1,0 +1,11 @@
+ENV=production
+DOMAIN=.default.svc.cluster.local
+HTTPS_REDIRECT_FROM=www.pecdata.com
+HTTPS_REDIRECT_TO=pecdata.com
+HTTP_SCHEME=https
+INSTRUCTORPORTAL_WEBAPPS=server 54.85.49.167;
+LEGACY_WEBAPPS=server 10.0.0.63; server 10.0.0.96;
+MAINTENANCE_MODE=off
+RESOLVER=kube-dns.kube-system.svc.cluster.local
+SERVERNAME=pecdata.com www.pecdata.com
+SHOW_ERRORS=on

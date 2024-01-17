@@ -1,0 +1,11 @@
+ENV=dev
+DOMAIN=.default.svc.cluster.local
+HTTPS_REDIRECT_FROM=www.dev-pecdata.net
+HTTPS_REDIRECT_TO=dev-pecdata.net
+HTTP_SCHEME=https
+INSTRUCTORPORTAL_WEBAPPS=server chronos-instructorportal.dev-pecdata.private;
+LEGACY_WEBAPPS=server chronos-www.dev-pecdata.private;
+RESOLVER=kube-dns.kube-system.svc.cluster.local
+SERVERNAME=www.dev-pecdata.net dev-pecdata.net aion-nginx.dev-pecdata.net
+TRAINING_LEGACY_WEBAPPS=server chronos-training.dev-pecdata.private;
+TRAINING_SERVER=demotraining.dev-pecdata.net
