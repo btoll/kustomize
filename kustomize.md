@@ -40,7 +40,7 @@ Since `kustomize` is built into `kubectl`, it can be used in the following ways:
 > Note that you can generate manifests directly from a remote git repository, such as doing:
 >
 > ```bash
-> $ kubectl kustomize kubectl kustomize https://github.com/kubernetes-sigs/kustomize.git/examples/helloWorld?ref=v1.0.6
+> $ kubectl kustomize https://github.com/argoproj/argo-cd/manifests/cluster-install
 > ```
 
 Generate a `ConfigMap` from a file:
@@ -354,7 +354,18 @@ This should start to illustrate how `Kustomize` can help not only with common de
 
 ### `patchesStrategicMerge`
 
-This merge strategy is a customized version of `JSON` merge patch and is the same one used by `kubectl apply`, `kubectl edit` and `kubectl patch`.  It is used as an additive strategy.  Let's first take a look at the patch:
+This merge strategy is a customized version of `JSON` merge patch and is the same one used by `kubectl apply`, `kubectl edit` and `kubectl patch`.  It is used as an additive strategy.
+
+There are multiple operations, or directives.  Here are some of the most common:
+
+- replace
+- merge
+- delete
+- delete from primitive list
+
+The first three are mutually exclusive.
+
+Let's first take a look at the patch:
 
 `patch.yaml`
 
