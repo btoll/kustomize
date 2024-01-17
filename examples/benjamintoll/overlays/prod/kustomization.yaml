@@ -1,5 +1,5 @@
 namePrefix: prod-
-nameSuffix: -0.1.0
+nameSuffix: -0-1-0
 
 resources:
   - ../../base

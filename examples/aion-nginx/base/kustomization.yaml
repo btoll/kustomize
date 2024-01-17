@@ -1,4 +1,4 @@
-nameSuffix: -0.1.0
+nameSuffix: -0-1-0
 namespace: default
 commonLabels:
   app: aion-nginx
