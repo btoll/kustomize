@@ -1,0 +1,14 @@
+namePrefix: prod-
+nameSuffix: -0.1.0
+
+resources:
+  - ../../base
+
+patchesStrategicMerge:
+  - patch.yaml
+
+configMapGenerator:
+- name: env
+  envs:
+  - env
+  behavior: merge

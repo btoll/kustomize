@@ -1,0 +1,15 @@
+#namePrefix: dev-
+#nameSuffix: -0.1.0
+namespace: default
+
+commonLabels:
+  app: benjamintoll
+
+resources:
+  - deployment.yaml
+  - service.yaml
+
+configMapGenerator:
+- name: env
+  envs:
+  - env
